@@ -1,6 +1,6 @@
 # nitrokeyhsm-cheatsheet
 
-This document bas been made for **Nitrokey HSM 2**but these commands will work for every PKCS11 HSM.
+This document bas been made for **Nitrokey HSM 2** but these commands will work for every PKCS11 HSM.
 
  
 List detected smartcard (HSM is considered as a smartcard) and associated object of smartcard: 
@@ -14,7 +14,7 @@ Reset the HSM:
 ```
 sc-hsm-tool --initialize --so-pin *XXXX* --pin *YYYY*
 ```
-The HSM will be reinitialized. Evey kezs will be erase.
+The HSM will be reinitialized. Evey keys will be erase.
 
 Change the so-pin:
 
@@ -56,7 +56,7 @@ List **URI** of objects that are stored in the **HSM**:
 ```
 p11tool --login --list-all *URI*
 ```
-**URI** of object are necessary to perform action with the associate object (encrypt data with a stored key for example)
+**URI** is needed to perform action with the associate object (encrypt data with a stored key for example)
 
 
 To encrypt a file with a RSA public key:
@@ -92,6 +92,8 @@ openssl req -new -x509 -days 3650 -subj '/CN=CA-2023/' -sha256 -engine pkcs11 -k
 ```
 
 **URI** must be the just generated private key.
+
+Sign a certificate request (CSR file):
 
 ```
 openssl x509 -req -CAkeyform engine -engine pkcs11 -in mycsr.csr -days 365 -CA CA-2023.pem -CAkey *URI* -set_serial *serial_number* -sha256 -extensions req_ext -extfile extension.cnf -out mycert.pem
