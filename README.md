@@ -1,6 +1,6 @@
 # nitrokeyhsm-cheatsheet
 
-This document bas been made for **Nitrokey HSM 2** but these commands will work for every PKCS11 HSM.
+This document has been made for **Nitrokey HSM 2** but these commands will work for every PKCS11 HSM.
 
  
 List detected smartcard (HSM is considered as a smartcard) and associated object of smartcard: 
